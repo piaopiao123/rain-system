@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.rainsystem.repository.RainQualityMapper">
+    <resultMap id="rainResultMap" type="com.example.rainsystem.domain.RainQuality">
+        <id column="id" property="id"/>
+        <result column="districtname" property="districtname" />
+        <result column="monitortime" property="monitortime" />
+        <result column="rain" property="rain" />
+        <result column="monitoringstation" property="monitoringstation" />
+        <result column="monitoringaddress" property="monitoringaddress" />
+    </resultMap>
+    <select id="SelectAll" resultMap="rainResultMap">
+        SELECT * FROM RainQuality
+    </select>
+    <delete id="Delete" parameterType="java.lang.Integer">
+        DELETE FROM RainQuality WHERE id=#{id}
+    </delete>
+</mapper>

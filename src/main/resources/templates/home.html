@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" style="text-align:center">
+    <tr>
+        <td>商品编号</td>
+        <td>区域名称</td>
+        <td>监测时间</td>
+        <td>雨量值(mm)</td>
+        <td>监测站</td>
+        <td>站点地址</td>
+        <td>操作</td>
+    </tr>
+    <tr th:each="li:*{list}">
+        <td th:text="${li.id}"></td>
+        <td th:text="${li.districtname}"></td>
+        <td th:text="${li.monitortime}"></td>
+        <td th:text="${li.rain}"></td>
+        <td th:text="${li.monitoringstation}"></td>
+        <td th:text="${li.monitoringaddress}"></td>
+        <td><a th:href="@{delete(id=${li.id})}">删除</a></td>
+    </tr>
+</table>
+</body>
+</html>
